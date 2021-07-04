@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-md-3 menu">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="../index.php">Tarefas pendentes</a></li>
+						<li class="list-group-item"><a href="index.php">Tarefas pendentes</a></li>
 						<li class="list-group-item active"><a href="#">Nova tarefa</a></li>
 						<li class="list-group-item"><a href="todas_tarefas.php">Todas tarefas</a></li>
 					</ul>
@@ -36,13 +36,12 @@
 								<h4>Nova tarefa</h4>
 								<hr />
 
-								<form>
+								<form method="post" action="../scripts/tarefa_controller.php">
 									<div class="form-group">
 										<label>Descrição da tarefa:</label>
-										<input type="text" class="form-control" placeholder="Exemplo: Lavar o carro">
+										<input type="text" name="tarefa" class="form-control" placeholder="Exemplo: Lavar o carro">
 									</div>
-
-									<button class="btn btn-success">Cadastrar</button>
+									<button type="submit" class="btn btn-success">Cadastrar</button>
 								</form>
 							</div>
 						</div>
