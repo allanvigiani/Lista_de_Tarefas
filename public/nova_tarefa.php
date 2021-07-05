@@ -12,7 +12,7 @@
 	<body>
 		<nav class="navbar navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="">
 					<img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
 					CRUD Lista de Tarefas
 				</a>
@@ -45,6 +45,19 @@
 								</form>
 							</div>
 						</div>
+
+						<?php if (isset($_GET['inclusao']) && isset($_GET['inclusao']) == 'success') {?>
+							
+							<div class="alert alert-success text-center mb">Tarefa cadastrada com sucesso!</div>
+										
+						<?php } ?>
+
+						<?php if (isset($_GET['field']) && isset($_GET['field']) == 'empty') {?>
+							
+							<div class="alert alert-danger text-center mb">Preencha o campo!</div>
+										
+						<?php } ?>
+
 					</div>
 				</div>
 			</div>
