@@ -39,7 +39,11 @@ class TarefaService {
 
 };
 
-// Comentario tem que ser apagado
+// Teste commit 1
+
+// 
+
+// Add comments
 
 // Este deve ficar
 
