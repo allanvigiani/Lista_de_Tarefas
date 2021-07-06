@@ -39,8 +39,6 @@ class TarefaService {
 
 };
 
-// Teste commit 1
-
-// 
+// Teste
 
 ?>
