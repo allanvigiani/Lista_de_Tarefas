@@ -39,12 +39,4 @@ class TarefaService {
 
 };
 
-// Teste commit 1
-
-// 
-
-// Add comments
-
-// Este deve ficar
-
 ?>
