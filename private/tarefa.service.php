@@ -39,10 +39,6 @@ class TarefaService {
 
 };
 
-// Teste commit 1
-
-// 
-
-// Add comments
+// Comentario tem que ser apagado
 
 ?>
