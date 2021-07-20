@@ -31,6 +31,19 @@ class TarefaService {
 
     public function recuperar(){
 
+        $query = "
+            SELECT 
+                tarefas.id,
+                status.status,
+                tarefas.tarefa
+            FROM tarefas
+                LEFT JOIN status on tarefas.id_status = status.id;
+        ";
+
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
     }
 
     public function atualizar(){

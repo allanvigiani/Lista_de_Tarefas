@@ -3,24 +3,36 @@
     require "../private/tarefa.model.php";
     require "../private/tarefa.service.php";
     require "../private/database/connection.php";
+
+    // Instanciando objetos
+    $conexao = new Connection();    
+    $tarefa = new Tarefa();
+
+    // Verifica se o get está setado
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
     
-    if ($_POST['tarefa'] == '') {
+    if ($acao == 'inclusao') {
 
-        header('Location: ../public/nova_tarefa.php?field=empty');
+        if ($_POST['tarefa'] == '') {
 
-    } else {
+            header('Location: ../public/nova_tarefa.php?field=empty');
+    
+        } else {
 
-        // Instanciando objetos
-        $conexao = new Connection();
+            $tarefa->__set('tarefa', $_POST['tarefa']);
+    
+            $tarefa_service = new TarefaService($conexao, $tarefa);
+            $tarefa_service->inserir();
+    
+            header('Location: ../public/nova_tarefa.php?inclusao=success');
+    
+        }  
 
-        $tarefa = new Tarefa();
-        $tarefa->__set('tarefa', $_POST['tarefa']);
-
+    }else if ($acao == 'listar') {
+        
         $tarefa_service = new TarefaService($conexao, $tarefa);
-        $tarefa_service->inserir();
+        $tarefas = $tarefa_service->recuperar(); // Retorno do método recuperar()
 
-        header('Location: ../public/nova_tarefa.php?inclusao=success');
-
-    }    
-
+    }
+      
 ?>
