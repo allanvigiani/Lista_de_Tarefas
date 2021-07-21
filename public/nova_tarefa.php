@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="../css/estilo.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -48,13 +49,13 @@
 
 						<?php if (isset($_GET['inclusao']) && isset($_GET['inclusao']) == 'success') {?>
 							
-							<div class="alert alert-success text-center mb">Tarefa cadastrada com sucesso!</div>
+							<div class="alert alert-success text-center mb" id="bootstrap_msg">Tarefa cadastrada com sucesso!</div>
 										
 						<?php } ?>
 
 						<?php if (isset($_GET['field']) && isset($_GET['field']) == 'empty') {?>
 							
-							<div class="alert alert-danger text-center mb">Preencha o campo!</div>
+							<div class="alert alert-danger text-center mb" id="bootstrap_msg">Preencha o campo!</div>
 										
 						<?php } ?>
 
@@ -63,4 +64,12 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		// INserção de Jquery para retirar mensagem de retorno ao inserir uma tarefa
+		$().ready(function () {
+			setTimeout(function() {
+				$('#bootstrap_msg').hide();
+			}, 2500)
+    	});
+	</script>
 </html>

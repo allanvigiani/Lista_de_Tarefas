@@ -7,9 +7,10 @@
     // Instanciando objetos
     $conexao = new Connection();    
     $tarefa = new Tarefa();
-
+    
     // Verifica se o get está setado
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
+    $acao = 'listar_pendetes';
     
     if ($acao == 'inclusao') {
 
@@ -33,6 +34,11 @@
         $tarefa_service = new TarefaService($conexao, $tarefa);
         $tarefas = $tarefa_service->recuperar(); // Retorno do método recuperar()
 
+    }else if ($acao == 'listar_pendentes') {
+
+        $tarefa_service = new TarefaService($conexao, $tarefa);
+        $tarefas_pendentes = $tarefa_service->recuperar(); // Retorno do método recuperar()
+       
     }
       
 ?>

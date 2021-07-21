@@ -1,8 +1,14 @@
+<?php
+
+	$acao = 'listar_pendentes';
+	require '../scripts/tarefa_controller.php';
+
+?>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CRUD Lista de Tarefas</title>
+		<title>CRUD Lista de Tarefas </title>
 
 		<link rel="stylesheet" href="../css/estilo.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -15,6 +21,9 @@
 				<a class="navbar-brand" href="#">
 					<img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
 					CRUD Lista de Tarefas
+				</a>
+				<a href="#" onclick="mostrarTutorial()" id="btn-tutorial">
+					<img src="https://img.icons8.com/material-outlined/24/000000/info.png" id="tutorial"/>
 				</a>
 			</div>
 		</nav>
@@ -36,23 +45,25 @@
 								<h4>Tarefas pendentes</h4>
 								<hr />
 
-								<div class="row mb-3 d-flex align-items-center tarefa">
-									<div class="col-sm-9">Lavar o carro</div>
-									<div class="col-sm-3 mt-2 d-flex justify-content-between">
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
-										<i class="fas fa-edit fa-lg text-info"></i>
-										<i class="fas fa-check-square fa-lg text-success"></i>
-									</div>
-								</div>
+								<?php foreach ($tarefas_pendentes as $key => $tarefa_pendente) { 
+									//TODO resolver bug foreach
+									if ($tarefa_pendente->status == 'pendente') {
 
-								<div class="row mb-3 d-flex align-items-center tarefa">
-									<div class="col-sm-9">Passear com o cachorro</div>
-									<div class="col-sm-3 mt-2 d-flex justify-content-between">
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
-										<i class="fas fa-edit fa-lg text-info"></i>
-										<i class="fas fa-check-square fa-lg text-success"></i>
+								?>
+
+									<div class="row mb-3 d-flex align-items-center tarefa">
+										<div class="col-sm-9"><?= $tarefa_pendente->tarefa ?></div>
+										<div class="col-sm-3 mt-2 d-flex justify-content-between">
+											<a><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+											<a><i class="fas fa-edit fa-lg text-info"></i></a>
+											<a><i class="fas fa-check-square fa-lg text-success"></i></a>
+										</div>
 									</div>
-								</div>
+								
+									<?php } ?>
+
+								<?php }  ?>
+
 							</div>
 						</div>
 					</div>
@@ -60,4 +71,5 @@
 			</div>
 		</div>
 	</body>
+	<script src="../js/tutorial.js"></script>
 </html>

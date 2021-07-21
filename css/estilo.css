@@ -29,4 +29,6 @@ h4 {
 	color: #017929 !important;
 }
 
-
+#btn-tutorial {
+	cursor: pointer;
+}
