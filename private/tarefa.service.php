@@ -48,6 +48,8 @@ class TarefaService {
 
     public function atualizar(){
 
+        $query = "";
+
     }
 
 };

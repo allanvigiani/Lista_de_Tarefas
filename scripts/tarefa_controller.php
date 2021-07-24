@@ -7,10 +7,10 @@
     // Instanciando objetos
     $conexao = new Connection();    
     $tarefa = new Tarefa();
+    $tarefa_service = new TarefaService($conexao, $tarefa);
     
     // Verifica se o get está setado
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
-    $acao = 'listar_pendetes';
     
     if ($acao == 'inclusao') {
 
@@ -22,7 +22,6 @@
 
             $tarefa->__set('tarefa', $_POST['tarefa']);
     
-            $tarefa_service = new TarefaService($conexao, $tarefa);
             $tarefa_service->inserir();
     
             header('Location: ../public/nova_tarefa.php?inclusao=success');
@@ -31,14 +30,12 @@
 
     }else if ($acao == 'listar') {
         
-        $tarefa_service = new TarefaService($conexao, $tarefa);
         $tarefas = $tarefa_service->recuperar(); // Retorno do método recuperar()
 
     }else if ($acao == 'listar_pendentes') {
 
-        $tarefa_service = new TarefaService($conexao, $tarefa);
-        $tarefas_pendentes = $tarefa_service->recuperar(); // Retorno do método recuperar()
+        $tarefas_pendentes = $tarefa_service->recuperar(); // Retorno do método recuperar() 
        
     }
-      
+
 ?>

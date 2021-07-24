@@ -45,21 +45,21 @@
 								<h4>Tarefas pendentes</h4>
 								<hr />
 
-								<?php foreach ($tarefas_pendentes as $key => $tarefa_pendente) { 
-									//TODO resolver bug foreach
+								<?php foreach ($tarefas_pendentes as $key => $tarefa_pendente) {
 									if ($tarefa_pendente->status == 'pendente') {
-
 								?>
 
 									<div class="row mb-3 d-flex align-items-center tarefa">
 										<div class="col-sm-9"><?= $tarefa_pendente->tarefa ?></div>
 										<div class="col-sm-3 mt-2 d-flex justify-content-between">
-											<a><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
-											<a><i class="fas fa-edit fa-lg text-info"></i></a>
-											<a><i class="fas fa-check-square fa-lg text-success"></i></a>
+											<a href=""><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+											<a href=""><i class="fas fa-edit fa-lg text-info"></i></a>
+											<a href=""><i class="fas fa-check-square fa-lg text-success"></i></a>
 										</div>
 									</div>
 								
+									<!-- TODO implementar uma mensagem de nenhuma tarefa pendente -->
+
 									<?php } ?>
 
 								<?php }  ?>

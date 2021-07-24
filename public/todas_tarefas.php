@@ -11,6 +11,7 @@
 		<title>CRUD Lista de Tarefas</title>
 
 		<link rel="stylesheet" href="../css/estilo.css">
+		<link rel="stylesheet" href="../css/modal.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	</head>
@@ -42,26 +43,50 @@
 								<h4>Todas tarefas</h4>
 								<hr />
 								
-								<?php foreach ((array) $tarefas as $key => $tarefa_pendente) { ?>
+								<?php //if () ?>
+
+								<?php foreach ($tarefas as $key => $tarefa) { ?>
 
 									<div class="row mb-3 d-flex align-items-center tarefa">
 									<div class="col-sm-9">
 										<?= $tarefa->tarefa ?> (<?= $tarefa->status ?>)
 									</div>
 									<div class="col-sm-3 mt-2 d-flex justify-content-between">
-										<a><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
-										<a><i class="fas fa-edit fa-lg text-info"></i></a>
-										<a><i class="fas fa-check-square fa-lg text-success"></i></a>
+										<a href="#"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+										<a href="#"><i class="fas fa-edit fa-lg text-info" onclick="editar_tarefa()"></i></a>
+										<a href="#"><i class="fas fa-check-square fa-lg text-success"></i></a>
 									</div>
 									</div>
 
-								<?php } ?>					
+								<?php } ?>
+								
+								<!-- TODO implementar uma mensagem de nenhuma tarefa cadastrada -->
 								
 							</div>
+							<!-- TODO implementar lógica do modal para dar um update na tarefa-->
+							<!-- The Modal -->
+							<div id="myModal" class="modal">
+
+							<!-- Modal content -->
+							<div class="modal-content">
+								<p class="titulo-modal">Atualizar tarefa<span class="close" onclick="fechar_modal()">&times;</span></p>
+								<form method="post" action="../scripts/tarefa_controller.php?tarefa=atualizar">
+									<p>
+										<input type="text" id="input-atualizar" placeholder="Digite o nome da tarefa">
+										<span>
+											<button type="submit" id="btn-atualizar">Atualizar</button>
+										</span>
+									</p>
+								</form>								
+							</div>
+
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
+	<script src="../js/modal.js"></script>
 </html>
